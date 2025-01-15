@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: template-mono-app
+  labels:
+    app: template-mono-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: template-mono-app
+  template:
+    metadata:
+      labels:
+        app: template-mono-app
+    spec:
+      containers:
+        - name : main
+          image: template-mono-app
+          imagePullPolicy: Always
+

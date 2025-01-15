@@ -1,0 +1,1416 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: note
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 4ee79d0b-06f4-432c-915f-87c21904d570
+    name: username
+    selector:
+    - conversation
+    - username
+    value: ''
+    value_type: string
+  - description: ''
+    id: 1b786a10-0126-40d0-9a96-3c0d8bdafacd
+    name: unrelated
+    selector:
+    - conversation
+    - unrelated
+    value: 请提供具体的消费项目和金额，以便我为您分类和计算。
+    value_type: string
+  - description: ''
+    id: 8ec20b63-5035-4600-bdb4-bf4a16827957
+    name: baseURL
+    selector:
+    - conversation
+    - baseURL
+    value: http://172.16.17.11:8000
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: '我是记账小助手，请输入你的消费情况，我将自动进行分类，开始之前请告诉我你是谁，如：“我是wanna”
+
+      后续输入示例如下'
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 火锅98元，动车80元
+    - 今天消费了多少
+    - 上月交通多少
+    - 25年1-4月餐饮消费多少
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: true
+        iteration_id: '1735897604770'
+        sourceType: iteration-start
+        targetType: code
+      id: 1735897604770start-source-1735897685066-target
+      source: 1735897604770start
+      sourceHandle: source
+      target: '1735897685066'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1735897604770'
+        sourceType: code
+        targetType: http-request
+      id: 1735897685066-source-1735898167137-target
+      source: '1735897685066'
+      sourceHandle: source
+      target: '1735898167137'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: answer
+      id: 1735897604770-source-answer-target
+      source: '1735897604770'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1735892896203-source-1736128469303-target
+      source: '1735892896203'
+      sourceHandle: source
+      target: '1736128469303'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1736128469303-true-1736128132886-target
+      source: '1736128469303'
+      sourceHandle: 'true'
+      target: '1736128132886'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1736128469303-false-1735896817956-target
+      source: '1736128469303'
+      sourceHandle: 'false'
+      target: '1735896817956'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1735896817956-source-1735897604770-target
+      source: '1735896817956'
+      sourceHandle: source
+      target: '1735897604770'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1736232177392-1736232351782-1736232379279-target
+      source: '1736232177392'
+      sourceHandle: '1736232351782'
+      target: '1736232379279'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: code
+      id: 1736232556019-source-17362326145650-target
+      selected: false
+      source: '1736232556019'
+      sourceHandle: source
+      target: '17362326145650'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: http-request
+      id: 1736238350702-source-1736232556019-target
+      source: '1736238350702'
+      sourceHandle: source
+      target: '1736232556019'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: code
+      id: 1736148511832-source-1736216704021-target
+      source: '1736148511832'
+      sourceHandle: source
+      target: '1736216704021'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: question-classifier
+      id: 1736216704021-source-1736232177392-target
+      source: '1736216704021'
+      sourceHandle: source
+      target: '1736232177392'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1736243568815-source-1736238350702-target
+      source: '1736243568815'
+      sourceHandle: source
+      target: '1736238350702'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17362326145650-source-1736304048131-target
+      source: '17362326145650'
+      sourceHandle: source
+      target: '1736304048131'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: answer
+      id: 1736304048131-source-1736232783984-target
+      source: '1736304048131'
+      sourceHandle: source
+      target: '1736232783984'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1736232177392-1736316907868-1736316957768-target
+      source: '1736232177392'
+      sourceHandle: '1736316907868'
+      target: '1736316957768'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: assigner
+      id: 1736316957768-source-1736317156171-target
+      source: '1736316957768'
+      sourceHandle: source
+      target: '1736317156171'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: if-else
+      id: 1736232177392-1-1736317289184-target
+      source: '1736232177392'
+      sourceHandle: '1'
+      target: '1736317289184'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1736317289184-true-1735892896203-target
+      source: '1736317289184'
+      sourceHandle: 'true'
+      target: '1735892896203'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1736317289184-false-1736317316685-target
+      source: '1736317289184'
+      sourceHandle: 'false'
+      target: '1736317316685'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: if-else
+      id: 1736232177392-2-1736317358189-target
+      source: '1736232177392'
+      sourceHandle: '2'
+      target: '1736317358189'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1736317358189-true-1736243568815-target
+      source: '1736317358189'
+      sourceHandle: 'true'
+      target: '1736243568815'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1736317358189-false-1736317316685-target
+      source: '1736317358189'
+      sourceHandle: 'false'
+      target: '1736317316685'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: http-request
+      id: 1736317156171-source-1736318798024-target
+      source: '1736317156171'
+      sourceHandle: source
+      target: '1736318798024'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: answer
+      id: 1736318798024-source-1736317395413-target
+      source: '1736318798024'
+      sourceHandle: source
+      target: '1736317395413'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: assigner
+      id: 1735892418047-source-1736407559905-target
+      source: '1735892418047'
+      sourceHandle: source
+      target: '1736407559905'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: http-request
+      id: 1736407559905-source-17364078159750-target
+      source: '1736407559905'
+      sourceHandle: source
+      target: '17364078159750'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: http-request
+      id: 17364078159750-source-1736148511832-target
+      source: '17364078159750'
+      sourceHandle: source
+      target: '1736148511832'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1735892418047'
+      position:
+        x: 30
+        y: 324
+      positionAbsolute:
+        x: 30
+        y: 324
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1735896817956.result#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 103
+      id: answer
+      position:
+        x: 3822
+        y: 753.5
+      positionAbsolute:
+        x: 3822
+        y: 753.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: fe817de7-e3f6-4fe4-8ed3-84e50cd0fb8b
+          role: system
+          text: '你是人性化的记账小助手，需要将用户经济活动分类到如下类目：{{#1736216704021.result#}}，并且计算出具体金额。如果是用户意料之外的费用则记为“意外支出”，如丢失，被骗，罚款，被偷等，但是非必要不要记录成“意外支出”，即有更适合的其他分类优先使用其他分类。如果需要计算得失时，请充分考虑生活日常情况。如果用户提供信息和记账无关，请直接回复：{{#conversation.unrelated#}}
+
+            返回格式：类目1:金额1,类目2:金额2
+
+            一个类目只能返回一条数据，且需要汇总计算该类目下的全部金额
+
+            <example>
+
+            用户：小明坐车去上学，公交花了2元，地铁花了4.6元,校门口买了个馒头花了2元
+
+            返回：交通出行:6.6,餐饮食品:2
+
+            </example>
+
+            <example>
+
+            用户：小明喝水花了2元，吃饭14.6元
+
+            返回：餐饮食品:16.6
+
+            </example>
+
+            <example>
+
+            用户：吃午饭了
+
+            返回：{{#conversation.unrelated#}}
+
+            </example>
+
+            <example>
+
+            用户：午饭18
+
+            返回：餐饮食品:18
+
+            </example>
+
+            <example>
+
+            用户：买菜给了100，找了28.5
+
+            返回：餐饮食品:71.5
+
+            </example>
+
+            <example>
+
+            用户：去买菜，5毛一斤，买了20斤，给了一百块，找了我50
+
+            返回：餐饮食品:10,意外支出:40
+
+            </example>'
+        - id: 685c5fe4-0755-4423-ba01-99826fdc0bbe
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735892896203'
+      position:
+        x: 2158
+        y: 631.5
+      positionAbsolute:
+        x: 2158
+        y: 631.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(input_str: str) -> dict:\n    if not input_str:\n        return\
+          \ {'result': []}\n    \n    input_str = input_str.strip().strip('\"')\n\
+          \    items = [item.strip() for item in input_str.split(',')]\n    \n   \
+          \ return {'result': items}"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[string]
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1735892896203'
+          - text
+          variable: input_str
+      height: 54
+      id: '1735896817956'
+      position:
+        x: 2766
+        y: 803
+      positionAbsolute:
+        x: 2766
+        y: 803
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 207
+        is_parallel: false
+        iterator_selector:
+        - '1735896817956'
+        - result
+        output_selector:
+        - '1735898167137'
+        - body
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1735897604770start
+        title: 迭代
+        type: iteration
+        width: 692
+      height: 207
+      id: '1735897604770'
+      position:
+        x: 3070
+        y: 753.5
+      positionAbsolute:
+        x: 3070
+        y: 753.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 692
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1735897604770start
+      parentId: '1735897604770'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 3094
+        y: 821.5
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "def main(input_str: str) -> dict:\n    input_str = input_str.strip().strip('\"\
+          ')\n    data = input_str.split(\":\")\n    return {\"type\": data[0], \"\
+          amount\": float(data[1])}"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1735897604770'
+        outputs:
+          amount:
+            children: null
+            type: number
+          type:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1735897604770'
+          - item
+          variable: input_str
+      height: 54
+      id: '1735897685066'
+      parentId: '1735897604770'
+      position:
+        x: 128
+        y: 69.42857142857144
+      positionAbsolute:
+        x: 3198
+        y: 822.9285714285714
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        isInIteration: true
+        iteration_id: '1735897604770'
+        method: post
+        params: "amount:{{#1735897685066.amount#}}\ncategory_name:{{#1735897685066.type#}}\n\
+          org_content:{{#1735897685066.type#}}:{{#1735897685066.amount#}}||{{#sys.query#}}\
+          \ \nuser_name:{{#conversation.username#}}"
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2
+        type: http-request
+        url: '{{#conversation.baseURL#}}/note/add'
+        variables: []
+      height: 122
+      id: '1735898167137'
+      parentId: '1735897604770'
+      position:
+        x: 430.4038755170395
+        y: 65
+      positionAbsolute:
+        x: 3500.4038755170395
+        y: 818.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        answer: '本项目仅用于记账，请输入消费信息
+
+          '
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 100
+      id: '1736128132886'
+      position:
+        x: 2766
+        y: 663
+      positionAbsolute:
+        x: 2766
+        y: 663
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: b94bf6ca-bdea-49a6-af38-556cb97704de
+            value: '{{#conversation.unrelated#}}'
+            varType: string
+            variable_selector:
+            - '1735892896203'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 126
+      id: '1736128469303'
+      position:
+        x: 2462
+        y: 642.5
+      positionAbsolute:
+        x: 2462
+        y: 642.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 2
+        type: http-request
+        url: '{{#conversation.baseURL#}}/category/list'
+        variables: []
+      height: 122
+      id: '1736148511832'
+      position:
+        x: 942
+        y: 324
+      positionAbsolute:
+        x: 942
+        y: 324
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(input_str: str) -> dict:\n    import json\n    data = json.loads(input_str)\n\
+          \    names = data['data']['name']\n    concatenated_names = \",\".join(names)\n\
+          \    return {'result': concatenated_names}"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 获取分类列表
+        type: code
+        variables:
+        - value_selector:
+          - '1736148511832'
+          - body
+          variable: input_str
+      height: 54
+      id: '1736216704021'
+      position:
+        x: 1246
+        y: 324
+      positionAbsolute:
+        x: 1246
+        y: 324
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 经济活动方式和金额
+        - id: '2'
+          name: 消费汇总需求
+        - id: '1736232351782'
+          name: 其他
+        - id: '1736316907868'
+          name: 用户名字
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        query_variable_selector:
+        - '1735892418047'
+        - sys.query
+        selected: false
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 248
+      id: '1736232177392'
+      position:
+        x: 1550
+        y: 324
+      positionAbsolute:
+        x: 1550
+        y: 324
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#conversation.unrelated#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 103
+      id: '1736232379279'
+      position:
+        x: 1854
+        y: 324
+      positionAbsolute:
+        x: 1854
+        y: 324
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 获取某段时间的消费额
+        type: http-request
+        url: '{{#conversation.baseURL#}}/note/info?{{#1736238350702.text#}}&user_name={{#conversation.username#}}'
+        variables: []
+      height: 159
+      id: '1736232556019'
+      position:
+        x: 2766
+        y: 921
+      positionAbsolute:
+        x: 2766
+        y: 921
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(input_str: str) -> dict:\n    import json\n    data = json.loads(input_str)\n\
+          \    amount = data['data']['amount']\n    lists = data['data']['list']\n\
+          \    return {'result': amount,'lists':lists}\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          lists:
+            children: null
+            type: array[object]
+          result:
+            children: null
+            type: number
+        selected: false
+        title: 取出消费数据
+        type: code
+        variables:
+        - value_selector:
+          - '1736232556019'
+          - body
+          variable: input_str
+      height: 54
+      id: '17362326145650'
+      position:
+        x: 3294
+        y: 1000.5
+      positionAbsolute:
+        x: 3294
+        y: 1000.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#17362326145650.result#}}
+
+          {{#1736304048131.output#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 121
+      id: '1736232783984'
+      position:
+        x: 4126
+        y: 924
+      positionAbsolute:
+        x: 4126
+        y: 924
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        prompt_config:
+          jinja2_variables: []
+        prompt_template:
+        - edition_type: basic
+          id: 231bee5f-e465-48fb-a1c5-670e9b834008
+          jinja2_text: '你是一个问答机器人
+
+            根据用户的提问，分析用户想要查询的时间段和消费类型。消费类型列表：{{#1736216704021.result#}}，消费类型只能从这个列表中选择，如果完全没提及类型则类型为"all"。返回格式"category=消费类型&star=开始时间&end=结束时间"
+
+            ### 案例1
+
+            假如现在时间是 2025-05-04 12:20:10
+
+            如果用户输入: 昨天的餐饮费用
+
+            输出:category=餐饮食品&start=2025-05-03 00:00:00&end=2025-05-04 00:00:00
+
+            ### 案例2
+
+            假如现在时间是 2025-03-04 12:20:10
+
+            如果用户输入: 这两天的费用
+
+            输出:category=all&start=2025-03-03 00:00:00&end=2025-03-04 12:20:10
+
+            ### 案例3
+
+            假如现在时间是 2021-09-07 12:20:10
+
+            如果用户输入: 这个月的交通费用
+
+            输出:category=交通出行&start=2021-09-01 00:00:00&end=2021-09-07 12:20:10
+
+            '
+          role: system
+          text: '你是一个问答机器人，当前时间是 {{#1736243568815.text#}}
+
+            根据用户的提问，分析用户想要查询的时间段和消费类型。消费类型列表：{{#1736216704021.result#}}，消费类型只能从这个列表中选择，如果完全没提及类型则类型为"all"。返回格式"category=消费类型&star=开始时间&end=结束时间"
+
+            ### 案例1
+
+            假如现在时间是 2025-05-04 12:20:10
+
+            如果用户输入: 昨天的餐饮费用
+
+            输出:category=餐饮食品&start=2025-05-03 00:00:00&end=2025-05-04 00:00:00
+
+            ### 案例2
+
+            假如现在时间是 2025-03-04 12:20:10
+
+            如果用户输入: 这两天的费用
+
+            输出:category=all&start=2025-03-03 00:00:00&end=2025-03-04 12:20:10
+
+            ### 案例3
+
+            假如现在时间是 2021-09-07 12:20:10
+
+            如果用户输入: 这个月的交通费用
+
+            输出:category=交通出行&start=2021-09-01 00:00:00&end=2021-09-07 12:20:10
+
+            '
+        - id: 37094a4d-bce2-46d0-a86c-45acfc15b8bf
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 获取url参数
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1736238350702'
+      position:
+        x: 2462
+        y: 944
+      positionAbsolute:
+        x: 2462
+        y: 944
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: 获取当前时间
+        tool_configurations:
+          format: '%Y-%m-%d %H:%M:%S'
+          timezone: Asia/Shanghai
+        tool_label: 获取当前时间
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+      height: 116
+      id: '1736243568815'
+      position:
+        x: 2158
+        y: 910
+      positionAbsolute:
+        x: 2158
+        y: 910
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\nfrom collections import defaultdict\n\ndef main(data):\n\
+          \    # 如果 data 为 None 或不是列表，返回空结果\n    if not isinstance(data, list):\n\
+          \        return {\"output\": {}}\n    \n    # 分类汇总数据\n    category_sums\
+          \ = defaultdict(float)\n    for item in data:\n        category_name = item.get(\"\
+          category_name\", \"Unknown\")\n        amount = item.get(\"amount\", 0)\n\
+          \        category_sums[category_name] += amount\n    \n    # 准备返回数据为字典格式\n\
+          \    pie_data = {category: amount for category, amount in category_sums.items()}\n\
+          \    return {\"output\": pie_data}"
+        code_language: python3
+        desc: ''
+        outputs:
+          output:
+            children: null
+            type: object
+        selected: false
+        title: 绘制echarts表格
+        type: code
+        variables:
+        - value_selector:
+          - '17362326145650'
+          - lists
+          variable: data
+      height: 54
+      id: '1736304048131'
+      position:
+        x: 3822
+        y: 948.5
+      positionAbsolute:
+        x: 3822
+        y: 948.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        prompt_template:
+        - id: 95c8c1f4-6692-49f0-b0a5-af9e0c712cd6
+          role: system
+          text: '你是一个问答助手，你需要从用户的描述中提取用户的名字
+
+            ### 案例1
+
+            用户：我是小明
+
+            输出：小明
+
+            ### 案例2
+
+            用户：wanna
+
+            输出：wanna'
+        - id: d626b658-4ba2-46b1-8525-630bd9f009e2
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 提取用户名
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1736316957768'
+      position:
+        x: 1854
+        y: 467
+      positionAbsolute:
+        x: 1854
+        y: 467
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1736316957768'
+          - text
+          variable_selector:
+          - conversation
+          - username
+          write_mode: over-write
+        selected: false
+        title: 变量赋值
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1736317156171'
+      position:
+        x: 2158
+        y: 464.5
+      positionAbsolute:
+        x: 2158
+        y: 464.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: a313544a-7a37-463e-b3be-178a6ae0989a
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - username
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 126
+      id: '1736317289184'
+      position:
+        x: 1854
+        y: 625
+      positionAbsolute:
+        x: 1854
+        y: 625
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '请先提供用户名，再开始记账或查询流程
+
+          如：我叫wanna、我的名字是wanna'
+        desc: ''
+        selected: false
+        title: 让用户提供自己的名字
+        type: answer
+        variables: []
+      height: 132
+      id: '1736317316685'
+      position:
+        x: 2158
+        y: 1066
+      positionAbsolute:
+        x: 2158
+        y: 1066
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: b862fc33-0384-441d-93ef-53e10c9d56f6
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - username
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 126
+      id: '1736317358189'
+      position:
+        x: 1854
+        y: 912.5
+      positionAbsolute:
+        x: 1854
+        y: 912.5
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '现在可以开始提供消费数据了
+
+          你的数据都会记录到{{#conversation.username#}}名下
+
+          如果查询数据，也会查询{{#conversation.username#}}的数据'
+        desc: ''
+        selected: false
+        title: 提供名字后的回复
+        type: answer
+        variables: []
+      height: 153
+      id: '1736317395413'
+      position:
+        x: 2766
+        y: 464.5
+      positionAbsolute:
+        x: 2766
+        y: 464.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: name:{{#conversation.username#}}
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 4
+        type: http-request
+        url: '{{#conversation.baseURL#}}/user/get_or_save'
+        variables: []
+      height: 138
+      id: '1736318798024'
+      position:
+        x: 2462
+        y: 464.5
+      positionAbsolute:
+        x: 2462
+        y: 464.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - sys
+          - user_id
+          variable_selector:
+          - conversation
+          - username
+          write_mode: over-write
+        selected: false
+        title: 先写入用户名字
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1736407559905'
+      position:
+        x: 334
+        y: 324
+      positionAbsolute:
+        x: 334
+        y: 324
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: name:{{#conversation.username#}}
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 4 (1)
+        type: http-request
+        url: '{{#conversation.baseURL#}}/user/get_or_save'
+        variables: []
+      height: 138
+      id: '17364078159750'
+      position:
+        x: 638
+        y: 324
+      positionAbsolute:
+        x: 638
+        y: 324
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -2526.6000000000004
+      y: -305.65
+      zoom: 0.7
